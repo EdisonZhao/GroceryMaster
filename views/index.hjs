@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grocery Master - Home</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta description=''>
+  </head>
+  <body>
+    <div>
+        <h1> Welcome to Grocery Master! </h1>
+    </div>
+    <div>
+        <ul>
+            <li><a href='#'>Find Easy Recipes Here!</a></li>
+            <li><a href='#'>Try Our Recipe Matching Tool!</a></li>
+        <ul>
+    </div>
+  </body>
+</html>
