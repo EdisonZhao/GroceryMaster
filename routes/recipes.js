@@ -25,12 +25,41 @@ var gm_recipes = mongoose.model('gm_recipes', {
 
 // Get All Recipe Previews
 router.get('/', function(req, res, next) {
-    gm_recipes
-        .find()
-        .limit(10)
-        .exec(function(err, recipes) {
-            res.send(recipes);
-        });
+    if (req.query.q) {
+        console.log(req.query);
+        gm_recipes
+            .find( { ingredients: new RegExp(req.query.q) } )
+            .limit(10)
+            .exec(function (err, recipes) {
+                var html = '';
+                recipes.forEach(function (recipe) {
+                    html += '<div class="recipe-container"> \
+                                <h1>' + recipe.name + '</h1> \
+                                <img src="' + recipe.image + '"> \
+                                <p>' + recipe.ingredients + '</p> \
+                                <h1>' + recipe.cookTime + '</h1> \
+                            </div>';
+                });
+                res.send(html);
+            });
+    }
+    else {
+        gm_recipes
+            .find()
+            .limit(10)
+            .exec(function (err, recipes) {
+                var html = '';
+                recipes.forEach(function (recipe) {
+                    html += '<div class="recipe-container"> \
+                                <h1>' + recipe.name + '</h1> \
+                                <img src="' + recipe.image + '"> \
+                                <p>' + recipe.ingredients + '</p> \
+                                <h1>' + recipe.cookTime + '</h1> \
+                            </div>';
+                });
+                res.send(html);
+            });
+    }
 });
 
 //Get a recipe item

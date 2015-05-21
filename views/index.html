@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Grocery Master - Home</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <meta description=''>
-  </head>
-  <body>
+<form action='/' method="POST">
     <div>
-        <h1> Welcome to Grocery Master! </h1>
+        <label>Search By Ingredients: </label>
+        <input name="ingredients" type="text" width="100px" />
     </div>
-    {{> div_recipe}}
+
     <div>
-        <ul>
-            <li><a href='/recipes'>Find Easy Recipes Here!</a></li>
-            <li><a href='#'>Try Our Recipe Matching Tool!</a></li>
-        <ul>
+        <label>Searach By Name: </label>
+        <input name="title" type="text" width="100px" />
     </div>
-  </body>
-</html>
+
+    <div>
+        <input type="submit" value="Find">
+    </div>
+</form>
